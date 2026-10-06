@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Subtitle Control</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="panel">
+      <div class="brand">
+        <div class="brand-mark">A1</div>
+        <div>
+          <div class="eyebrow">AREA ONE LIVE</div>
+          <h1>Live Subtitle</h1>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <span id="statusDot" class="dot"></span>
+        <span id="statusText">Ready</span>
+        <span id="latencyText" class="muted"></span>
+      </div>
+
+      <div class="grid">
+        <label>
+          <span>🎤 Microphone</span>
+          <select id="mic"></select>
+        </label>
+
+        <label>
+          <span>🇹🇭 Input language</span>
+          <select id="inputLanguage">
+            <option value="auto">Auto detect</option>
+            <option value="th" selected>ไทย</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+            <option value="ko">한국어</option>
+          </select>
+        </label>
+
+        <label>
+          <span>🌐 Translation language</span>
+          <select id="targetLanguage">
+            <option value="en" selected>English</option>
+            <option value="th">ไทย</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+            <option value="ko">한국어</option>
+            <option value="same">Original only</option>
+          </select>
+        </label>
+
+        <label>
+          <span>⏱️ Delay / chunk</span>
+          <select id="chunkSeconds">
+            <option value="2">2 seconds</option>
+            <option value="3" selected>3 seconds</option>
+            <option value="4">4 seconds</option>
+            <option value="5">5 seconds</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Font</span>
+          <select id="fontFamily">
+            <option value="Inter, Arial, sans-serif">Inter</option>
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+            <option value="Georgia, serif">Georgia</option>
+            <option value="'Noto Sans Thai', sans-serif">Noto Sans Thai</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Font size</span>
+          <input id="fontSize" type="range" min="24" max="110" value="56">
+          <output id="fontSizeValue">56px</output>
+        </label>
+
+        <label>
+          <span>Position</span>
+          <select id="position">
+            <option value="bottom" selected>Bottom</option>
+            <option value="center">Center</option>
+            <option value="top">Top</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Max lines</span>
+          <select id="maxLines">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Text color</span>
+          <input id="textColor" type="color" value="#ffffff">
+        </label>
+
+        <label>
+          <span>Stroke color</span>
+          <input id="strokeColor" type="color" value="#000000">
+        </label>
+
+        <label>
+          <span>Stroke width</span>
+          <input id="strokeWidth" type="range" min="0" max="12" value="3">
+          <output id="strokeWidthValue">3px</output>
+        </label>
+
+        <label>
+          <span>Shadow</span>
+          <input id="shadow" type="range" min="0" max="40" value="16">
+          <output id="shadowValue">16px</output>
+        </label>
+      </div>
+
+      <div class="preview">
+        <div class="preview-title">Preview</div>
+        <div id="previewText" class="subtitle-preview">Hello everyone, welcome to the event.</div>
+      </div>
+
+      <div class="actions">
+        <button id="startBtn" class="primary">● Start</button>
+        <button id="stopBtn" disabled>■ Stop</button>
+        <a class="overlay-link" href="/subtitle.html" target="_blank">Open subtitle ↗</a>
+      </div>
+
+      <div id="error" class="error"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: live-subtitle-obs
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: TRANSCRIPTION_MODEL
+        value: gpt-4o-mini-transcribe
+      - key: TRANSLATION_MODEL
+        value: gpt-4.1-mini
